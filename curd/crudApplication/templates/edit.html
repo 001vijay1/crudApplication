@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <title>Edit</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <script>
+        <link rel="stylesheet" href="{% static 'js/bootstrap.min.js' %}">
+    </script>
+</head>
+<body style="background-image:url({% static 'xyz2.jpg' %});">
+    <form method="post" class="post-form" action="/crud/update/{{form.book_id}}/">
+        {% csrf_token %}
+    <div class="container">
+<br>
+    <div class="form-group row">
+    <label class="col-sm-1 col-form-label"></label>
+    <div class="col-sm-4">
+    <h3>Update Details</h3>
+    </div>
+  </div>
+    <div class="form-group row">
+    <label class="col-sm-2 col-form-label">Book Name:</label>
+    <div class="col-sm-4">
+        <input type="text" name="book_name" id="book_id" required maxlength="20" value="{{ form.book_name }}"/>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label class="col-sm-2 col-form-label">Auther Name:</label>
+    <div class="col-sm-4">
+        <input type="text" name="auther_name" id="aid" required maxlength="100" value="{{ form.auther_name }}" />
+    </div>
+  </div>
+    <div class="form-group row">
+    <label class="col-sm-2 col-form-label">Book Price:</label>
+    <div class="col-sm-4">
+        <input type="number" name="price" id="id_price" required  value="{{ form.price }}" />
+    </div>
+  </div>
+    <div class="form-group row">
+    <label class="col-sm-1 col-form-label"></label>
+    <div class="col-sm-4">
+    <button type="submit" class="btn btn-success">Update</button>
+    </div>
+  </div>
+    </div>
+</form>
+</body>
+</html>
