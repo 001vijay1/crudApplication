@@ -8,8 +8,6 @@ class Book(models.Model):
     auther_name = models.CharField(max_length=30)
     price = models.IntegerField()
 
-
-
     def __str__(self):
         return self.book_name
 
@@ -24,3 +22,16 @@ class BookProfile(models.Model):
 def save_profile(sender, instance, **kwargs):
     BookProfile.objects.create(book=instance)
 post_save.connect(save_profile, sender=Book)
+
+
+
+class Contact(models.Model):
+    msg_id=models.AutoField(primary_key=True)
+    name=models.CharField(max_length=50)
+    email=models.CharField(max_length=50,default="")
+    phone=models.CharField(max_length=50,default="")
+    desc=models.CharField(max_length=500,default="")
+
+    def __str__(self):
+        return self.name
+

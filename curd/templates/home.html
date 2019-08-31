@@ -10,9 +10,11 @@
         body{
         background-image:url({% static 'xyz3.jpg' %});
 
+
     </style>
     <script>
         <link rel="stylesheet" href="{% static 'js/bootstrap.min.js' %}">
+
 
     </script>
 </head>
@@ -34,11 +36,20 @@
                     <a class="nav-link" href="{% url 'show' %}">Show Books</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Contact</a>
+                    <a class="nav-link" href="{% url 'contact' %}">Contact</a>
                 </li>
             </ul>
         </div>
     </nav>
 </header>
+<br>
+<br>
+{% if messages %}
+    <ul class="messages alert alert-success">
+        {% for message in messages %}
+        <li>{% if message.tags %} class="{{ message.tags }}"{% endif %}><h3>{{ message }}</h3></li>
+        {% endfor %}
+    </ul>
+    {% endif %}
 </body>
 </html>

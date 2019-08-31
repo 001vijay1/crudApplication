@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <title>show_books</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <script>
+        <link rel="stylesheet" href="{% static 'js/bootstrap.min.js' %}">
+
+
+
+
+    </script>
+
+</head>
+<body>
+<div class="container my-4">
+    <h3>Contact Us</h3>
+    <form action="{% url 'contact' %}" method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="Name">Name</label>
+            <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name">
+        </div>
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" class="form-control" id="email" name="email" placeholder="Enter your Email">
+        </div>
+        <div class="form-group">
+            <label for="phone">Phone</label>
+            <input type="tel" multiple class="form-control" id="phone" name="phone" placeholder="Enter your phone">
+        </div>
+        <div class="form-group">
+            <label for="desc">How May I Help You</label>
+            <textarea class="form-control" id="desc" name="desc" rows="3"></textarea>
+        </div>
+        <button type="submit" class="btn btn-success">Submit</button>
+    </form>
+</div>
+</body>
+

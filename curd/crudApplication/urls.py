@@ -7,4 +7,5 @@ urlpatterns = [
     url(r'^edit/(?P<book_id>\d+)/$',views.edit_record),
     url(r'^update/(?P<book_id>\d+)/$',views.update_record),
     url(r'^profile/(?P<book_id>\d+)/$',views.profile),
+    url(r'^contact/$',views.contact,name='contact'),
 ]
