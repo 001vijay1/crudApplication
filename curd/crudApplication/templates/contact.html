@@ -7,11 +7,8 @@
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
     <script>
         <link rel="stylesheet" href="{% static 'js/bootstrap.min.js' %}">
-
-
-
-
     </script>
+    <script src="{% static 'jquery' %}"></script>
 
 </head>
 <body>
@@ -39,4 +36,9 @@
     </form>
 </div>
 </body>
-
+<script>
+    {% if thanks %}
+    alert("thank for contact us i will cal you later");
+    document.location='/';
+    {% endif %}
+</script>

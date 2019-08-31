@@ -1,7 +1,6 @@
 from django.shortcuts import render,redirect
 from .forms import AddBookForm
 from .models import Book,BookProfile,Contact
-from django.contrib import messages
 
 # Create your views here.
 def add_book(request):
@@ -36,6 +35,7 @@ def profile(request,book_id):
     return render(request, 'profile.html', {'form': form})
 
 def contact(request):
+    thanks = False
     if (request.method == 'POST'):
         name = request.POST.get('name')
         email = request.POST.get('email')
@@ -43,6 +43,5 @@ def contact(request):
         desc = request.POST.get('desc')
         contact = Contact(name=name, email=email, phone=phone, desc=desc)
         contact.save()
-        messages.SUCCESS=(request,'I received your message')
-        return redirect('home')
-    return render(request , 'contact.html')
+        thanks = True
+    return render(request , 'contact.html',{'thanks':thanks})
