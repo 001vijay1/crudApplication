@@ -7,6 +7,7 @@ class Book(models.Model):
     book_name = models.CharField(max_length=50)
     auther_name = models.CharField(max_length=30)
     price = models.IntegerField()
+    publish_date = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return self.book_name
