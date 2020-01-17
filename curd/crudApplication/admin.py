@@ -6,6 +6,9 @@ from django.contrib.admin.options import ModelAdmin
 class BookAdmin(ModelAdmin):
     list_display = ['book_name','publish_date']
     search_fields = ['book_name']
+    list_filter = ['publish_date']
+
+
 
 admin.site.register(Book,BookAdmin)
 admin.site.register(BookProfile)
